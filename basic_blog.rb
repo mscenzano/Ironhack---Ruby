@@ -12,6 +12,7 @@ end
 
 	def printarticles(articles)
 		new_arr = @articles.sort_by {|articles| articles.title}
+		new_arr = @new_arr
 
 		new_arr.each do |a|
 			if a.sponsored = false
@@ -28,7 +29,11 @@ end
 		end
 	end
 
-
+def frontpage(numberofposts)
+		@new_arr.take(numberosposts).each do |page|
+			page.printarticles(@articles)
+		end
+end
 end
 
 class Post < Blog
@@ -53,4 +58,4 @@ blog.addarticle(art2)
 
 blog.printarticles(@articles)
 
-
+puts blog.frontpage(3)
